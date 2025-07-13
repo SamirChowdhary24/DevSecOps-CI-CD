@@ -1,34 +1,55 @@
-# 💡 DevSecOps CI/CD Pipeline Project
+# DevSecOps End-to-End CI/CD Pipeline with Jenkins, SonarQube, OWASP, and Trivy
 
-A complete DevSecOps pipeline integrating **Jenkins**, **SonarQube**, **OWASP Dependency-Check**, **Trivy**, and **Docker Compose**. This project demonstrates how to securely build, analyze, scan, and deploy a full-stack application using open-source tools.
+## 📌 Project Overview
+This project showcases a complete **DevSecOps CI/CD pipeline** that performs automated code quality and security checks before deploying an application. 
 
----
-
-## 🔧 Tools Used
-
-| Tool | Purpose |
-|------|---------|
-| **Jenkins** | CI/CD automation |
-| **SonarQube** | Static code analysis |
-| **OWASP Dependency-Check** | Detect vulnerable dependencies |
-| **Trivy** | Vulnerability & secret scanning |
-| **Docker + Docker Compose** | Containerization and orchestration |
-| **GitHub** | Source code repository |
+### Tools Used
+- **Jenkins**: Automation server to orchestrate the CI/CD pipeline
+- **SonarQube**: Static code analysis tool
+- **OWASP Dependency-Check**: Detects known vulnerabilities in project dependencies
+- **Trivy**: Scans filesystem and project for misconfigurations and vulnerabilities
+- **Docker + Docker Compose**: For application deployment
 
 ---
 
-## 🛠️ Step-by-Step Implementation
+## 🔄 Workflow Summary
 
-### 1️⃣ Launch EC2 Instance
+1. **Code Cloning**
+   - Jenkins pulls source code from GitHub:  
+     `https://github.com/krishnaacharyaa/wanderlust.git` (branch: `devops`)
 
-- Started with `t2.medium` (2 vCPU, 4 GB RAM), faced performance issues.
-- Upgraded to `t2.large` (2 vCPU, 8 GB RAM) due to **OWASP scan memory needs**.
-- Allocated **10 GB storage**.
+2. **Static Code Analysis (SonarQube)**
+   - Jenkins sends the code to SonarQube for analysis
+   - Identifies bugs, code smells, vulnerabilities
+   - View results on SonarQube at port `9000`
 
-### 2️⃣ Install Docker and Docker Compose
+3. **Dependency Vulnerability Scan (OWASP Dependency-Check)**
+   - Scans third-party libraries for known CVEs
+   - Report: `dependency-check-report.xml`
 
+4. **Quality Gate Check (SonarQube)**
+   - Jenkins waits for quality gate status
+   - If passed, continues the pipeline
+
+5. **File System Vulnerability Scan (Trivy)**
+   - Scans project directory for secrets, misconfigurations
+   - Report: `trivy-fs-report.html`
+
+6. **Deployment (Docker Compose)**
+   - App is deployed only if pipeline passes all scans
+   - Accessible at port `5173`
+
+---
+
+## ☁️ Infrastructure Setup
+
+### 1. EC2 Instance (Ubuntu)
+- Initially used **t2.medium** but upgraded to **t2.large** due to OWASP Dependency-Check memory usage
+- Storage: **10 GB**
+
+### 2. Docker and Docker Compose
 ```bash
-sudo apt update
+sudo apt update -y
 sudo apt install docker.io docker-compose -y
 sudo usermod -aG docker ubuntu
 reboot
