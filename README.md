@@ -1,4 +1,4 @@
-# DevSecOps End-to-End CI/CD Pipeline with Jenkins, SonarQube, OWASP, and Trivy
+# DevSecOps End-to-End CI/CD Pipeline with Jenkins, SonarQube, OWASP, Trivy and Docker
 
 ## 📌 Project Overview
 This project showcases a complete **DevSecOps CI/CD pipeline** that performs automated code quality and security checks before deploying an application. 
@@ -134,6 +134,10 @@ Please refer to the Jenkinsfile for full pipeline implementation with explanator
 # QUALITY GATES STATUS
 ![WhatsApp Image 2025-07-12 at 22 14 39_e1d6c75f](https://github.com/user-attachments/assets/5d70b94c-6c0c-4048-9f74-b0f98772eb39)
 # TRIVY SCAN REPORT
+<img width="2817" height="1058" alt="image" src="https://github.com/user-attachments/assets/739415a1-e0f7-4515-96ca-73d9d1410c6e" />
+# TEST SUMMARY
+<img width="2849" height="1444" alt="image" src="https://github.com/user-attachments/assets/88130ce0-5a4e-45e1-92ee-6dfb0a63a100" />
+
 
 
 
