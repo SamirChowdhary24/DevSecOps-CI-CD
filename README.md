@@ -76,9 +76,17 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 docker run -dit --name sonarqube -p 9000:9000 sonarqube:lts-community
 ```
 - Create a token in SonarQube
+![WhatsApp Image 2025-07-08 at 22 26 48_c96e9561](https://github.com/user-attachments/assets/8712f51b-62cf-4c8c-b2a4-7029a9ab9480)
+
 - Create a webhook named jenkins
+![WhatsApp Image 2025-07-08 at 22 24 58_c1f2ad83](https://github.com/user-attachments/assets/26ac1d5d-83df-4034-b175-b8c6e75d27d4)
+
 - Add SonarQube server and credentials in Jenkins
+![WhatsApp Image 2025-07-11 at 12 15 34_44d13ade](https://github.com/user-attachments/assets/c2e8645e-f689-4f8c-bbd5-6e8b28d0023d)
+
 - Install tool: SonarQube Scanner via Jenkins > Manage Jenkins > Global Tool Configuration
+![WhatsApp Image 2025-07-11 at 12 22 38_d1b71039](https://github.com/user-attachments/assets/ba86de73-881a-41cd-a5bd-5d368c7cabdc)
+
 
 ### 4.Install Trivy
 ```bash
@@ -90,6 +98,7 @@ sudo apt update -y
 sudo apt install trivy -y
 ```
 ## Jenkins Plugin Requirements
+![WhatsApp Image 2025-07-08 at 21 56 53_c4395b21](https://github.com/user-attachments/assets/707e66c8-2f6b-430c-b366-da270aaa88f0)
    - SonarQube Scanner
    - Sonar Quality Gates
    - OWASP Dependency-Check
@@ -114,6 +123,19 @@ sudo systemctl restart docker
 ## 🧪 Jenkins Pipeline
 The pipeline used in this project is located in a separate file for clarity.
 Please refer to the Jenkinsfile for full pipeline implementation with explanatory comments.
+# PIPELINE OVERVIEW
+![WhatsApp Image 2025-07-12 at 22 16 36_5e933d8c](https://github.com/user-attachments/assets/f6d38a9e-0847-4820-a86e-bd3024cbd4c0)
+# AWS INBOUND RULES
+![WhatsApp Image 2025-07-12 at 22 19 19_efc471a1](https://github.com/user-attachments/assets/6ce75e02-6c24-4775-96fe-58046a00de61)
+# APPLICATION DEPLOYED THROUGH DOCKER COMPOSE
+![WhatsApp Image 2025-07-12 at 22 20 32_2835c4bb](https://github.com/user-attachments/assets/4e4474d6-9dbc-4523-bb0c-a7941cb40615)
+# DEPENDENCY CHECK RESULTS
+![WhatsApp Image 2025-07-12 at 22 29 38_c873e001](https://github.com/user-attachments/assets/375342a9-7a54-40d8-94d8-d75d58c29394)
+# QUALITY GATES STATUS
+![WhatsApp Image 2025-07-12 at 22 14 39_e1d6c75f](https://github.com/user-attachments/assets/5d70b94c-6c0c-4048-9f74-b0f98772eb39)
+# TRIVY SCAN REPORT
+
+
 
 ## 🙌 What I Learned
    - Set up a real-world DevSecOps pipeline from scratch
