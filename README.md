@@ -53,3 +53,40 @@ sudo apt update -y
 sudo apt install docker.io docker-compose -y
 sudo usermod -aG docker ubuntu
 reboot
+```
+### 3. Jenkins Setup (Port 8080)
+```bash
+sudo apt update -y
+sudo apt install fontconfig openjdk-17-jre -y
+
+wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt update -y
+sudo apt install jenkins -y
+```
+Access Jenkins: http://<EC2_IP>:8080
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+### 3. SonarQube Setup (Port 9000)
+🔧 SonarQube Setup (Port 9000)
+```bash
+docker run -dit --name sonarqube -p 9000:9000 sonarqube:lts-community
+Create a token in SonarQube
+```
+-Create a webhook named jenkins
+-Add SonarQube server and credentials in Jenkins
+-Install tool: SonarQube Scanner via Jenkins > Manage Jenkins > Global Tool Configuration
+
+### 4.Install Trivy
+```bash
+echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/trivy.list
+
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+
+sudo apt update -y
+sudo apt install trivy -y
+```
+
