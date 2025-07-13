@@ -89,19 +89,19 @@ wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dear
 sudo apt update -y
 sudo apt install trivy -y
 ```
-### Jenkins Plugin Requirements
+## Jenkins Plugin Requirements
    -SonarQube Scanner
    -Sonar Quality Gates
    -OWASP Dependency-Check
    -Docker
 
-### ✅ Grant Docker Access to Jenkins
+## ✅ Grant Docker Access to Jenkins
 ```bash
 sudo usermod -aG docker jenkins
 sudo systemctl restart docker
 ```
 
-###📂 Reports Location
+## 📂 Reports Location
    OWASP Report: dependency-check-report.xml
    → Use an XML viewer or publish in Jenkins build output
    
@@ -111,11 +111,11 @@ sudo systemctl restart docker
    cat trivy-fs-report.html
    ```
 
-### 🧪 Jenkins Pipeline
+## 🧪 Jenkins Pipeline
 The pipeline used in this project is located in a separate file for clarity.
 Please refer to the Jenkinsfile for full pipeline implementation with explanatory comments.
 
-### 🙌 What I Learned
+## 🙌 What I Learned
    -Set up a real-world DevSecOps pipeline from scratch
    -Gained hands-on experience with SonarQube, OWASP, Trivy, and Docker
    -Learned how to install and configure Jenkins and integrate external tools
