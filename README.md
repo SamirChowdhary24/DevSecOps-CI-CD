@@ -75,10 +75,10 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```bash
 docker run -dit --name sonarqube -p 9000:9000 sonarqube:lts-community
 ```
--Create a token in SonarQube
--Create a webhook named jenkins
--Add SonarQube server and credentials in Jenkins
--Install tool: SonarQube Scanner via Jenkins > Manage Jenkins > Global Tool Configuration
+- Create a token in SonarQube
+- Create a webhook named jenkins
+- Add SonarQube server and credentials in Jenkins
+- Install tool: SonarQube Scanner via Jenkins > Manage Jenkins > Global Tool Configuration
 
 ### 4.Install Trivy
 ```bash
@@ -90,10 +90,10 @@ sudo apt update -y
 sudo apt install trivy -y
 ```
 ## Jenkins Plugin Requirements
-   -SonarQube Scanner
-   -Sonar Quality Gates
-   -OWASP Dependency-Check
-   -Docker
+   - SonarQube Scanner
+   - Sonar Quality Gates
+   - OWASP Dependency-Check
+   - Docker
 
 ## ✅ Grant Docker Access to Jenkins
 ```bash
@@ -116,12 +116,12 @@ The pipeline used in this project is located in a separate file for clarity.
 Please refer to the Jenkinsfile for full pipeline implementation with explanatory comments.
 
 ## 🙌 What I Learned
-   -Set up a real-world DevSecOps pipeline from scratch
-   -Gained hands-on experience with SonarQube, OWASP, Trivy, and Docker
-   -Learned how to install and configure Jenkins and integrate external tools
-   -Resolved Docker permission issues for Jenkins
-   -Optimized EC2 instance type for memory-heavy operations
-   -Understood the importance of security and quality gates in modern CI/CD pipelines
+   - Set up a real-world DevSecOps pipeline from scratch
+   - Gained hands-on experience with SonarQube, OWASP, Trivy, and Docker
+   - Learned how to install and configure Jenkins and integrate external tools
+   - Resolved Docker permission issues for Jenkins
+   - Optimized EC2 instance type for memory-heavy operations
+   - Understood the importance of security and quality gates in modern CI/CD pipelines
 
 
 
